@@ -125,27 +125,28 @@ for i in range(0, get_files_count(wavpath)):
     processMFCCList.append(object_mfcc)
 
 
-#코사인 유사도 시작
+# 코사인 유사도 시작
 import numpy as np
 from numpy import dot
 from numpy.linalg import norm
 
-#코사인유사도 함수
+# 코사인 유사도 함수
 def cosine_similarity(A, B):
     return dot(A, B) / (norm(A) * norm(B))
 
-#print(len(processMFCCList)) 출력할 MFCC길이 확인
+# print(len(processMFCCList)) 출력할 MFCC길이 확인
 
-#배열 선언
-voicesimilarity=[] #유사도를 담은 배열
-processSimilarityList=[] #VOICESIM 객체를 담은 배열
+# 배열 선언
+voicesimilarity = [] # 유사도를 담은 배열
+processSimilarityList = [] # VOICESIM 객체를 담은 배열
 
-#유사도 구하는 반복문
+# 유사도 구하는 반복문
 for i in range(100):
-    print(f"{i}. 문서1-문서2 간 유사도: {cosine_similarity(processMFCCList[i].mfcc, processMFCCList[0].mfcc)}")
+    # print(f"{i}. 문서1-문서2 간 유사도: {cosine_similarity(processMFCCList[i].mfcc, processMFCCList[0].mfcc)}")
+    # 0번째 음성과 n번째 음성 간 코사인 유사도 비교
     voicesimilarity.append(cosine_similarity(processMFCCList[i].mfcc, processMFCCList[0].mfcc))
 
-#VOICESIM 클래스 형식
+# VOICESIM 클래스 형식
 class VOICESIM:
     # 속성 생성
     def __init__(self, name, rapidness, loudness, similarity):
@@ -154,7 +155,7 @@ class VOICESIM:
         self.loudness = loudness,
         self.similarity = similarity
 
-# voicesim 객체 삽입
+# VOICESIM 객체 삽입
 for i in range(0, 100):
     name = "sit" + str(i + 1) + ".wav"
 
