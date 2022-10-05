@@ -4,7 +4,7 @@
 .idea
 /.idea
 
-# MFCC 벡터 변환 저장 팔일
+# MFCC 벡터 변환 저장 파일
 /MFCC_vector_file.pickle
 
 # 현재 코드 옮기고 있는 파일
