@@ -42,32 +42,32 @@ print(result)
 print("실행 잘 됨!")
 
 ## flask server ##
-# app = Flask(__name__)
-# api = Api(app, version='0.0.1')
-# print("서버 실행 좀..")
-#
-#
-# # test route
-# @app.route("/")
-# def index():
-#     return "Hello World!"
-#
-#
-# @api.route("/api/result/voice")
-# class resultVoice(Resource):
-#     def post(self):
-#         try:
-#             # 입력 음성을 어떻게 할려나.? 어떻게 보내주냐에 따라서 코드가 달라질 듯
-#             # 입력 음성을 노드에서 보내주세요.
-#
-#             # 음성에 대한 판정 알고리즘 계산, 결과 return 필요
-#             result = "음성 판정 알고리즘을 작성해주세요. 메서드로 작성해서 return하면 좋을 것 같습니다."
-#
-#             return jsonify({"success": True, "result": result})  # 판정 결과를 보내준다.
-#         except:
-#             return jsonify({"success": False, "message": "사용자 음성 판정 실패"})
-#
-#
-# if __name__ == '__main__':
-#     app.run('0.0.0.0', debug=False)
+app = Flask(__name__)
+api = Api(app, version='0.0.1')
+print("서버 실행 좀..")
+
+
+# test route
+@app.route("/")
+def index():
+    return "Hello World!"
+
+
+@api.route("/api/result/voice")
+class resultVoice(Resource):
+    def post(self):
+        try:
+            # 입력 음성을 어떻게 할려나.? 어떻게 보내주냐에 따라서 코드가 달라질 듯
+            # 입력 음성을 노드에서 보내주세요.
+
+            # 음성에 대한 판정 알고리즘 계산, 결과 return 필요
+            result = "음성 판정 알고리즘을 작성해주세요. 메서드로 작성해서 return하면 좋을 것 같습니다."
+
+            return jsonify({"success": True, "result": result})  # 판정 결과를 보내준다.
+        except:
+            return jsonify({"success": False, "message": "사용자 음성 판정 실패"})
+
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', debug=False)
 
